@@ -1,16 +1,14 @@
+// --------------------variables--------------------
+const result = document.querySelector('#result');
+const lastOperation = document.querySelector('#last-operation');
+
 // ----- using Object to store operators ----
-let operation = {
-  '+': function (a, b) { return a + b },
-  '-': function (a, b) { return a - b },
-  '*': function (a, b) { return a * b },
-  '/': function (a, b) { return a / b },
-}
+// --------------------events--------------------
+// -----------------functions---------------------
 // create one function for each operator
 // create function operate - takes 3 par - 2 numbers & operator
-function operate(val1, val2, operator){
-  return operator(val1, val2);
-}
 
+// -----------------test----------------
 console.log(operate(2, 3, operation['+']));
 console.log(operate(5, 5, operation['*']));
 console.log(operate(100, 10, operation['-']));

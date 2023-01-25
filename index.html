@@ -8,27 +8,36 @@
   <body>
     <h1>Lets play with math</h1>
     <div class="container">
-      <div id="calcuator">
-        <div id="display"></div>
+      <div id="calculator">
+        <div id="display">
+          <div class='calc-display' id="last-operation"></div>
+          <div class='calc-display' id="result">0</div>
+        </div>
         <!-- numbers -->
-        <button class="calc-button number">1</button>
-        <button class="calc-button number">2</button>
-        <button class="calc-button number">3</button>
-        <button class="calc-button number">4</button>
-        <button class="calc-button number">5</button>
-        <button class="calc-button number">6</button>
-        <button class="calc-button number">7</button>
-        <button class="calc-button number">8</button>
-        <button class="calc-button number">9</button>
-        <button class="calc-button number">0</button>
-        <!-- operators -->
-        <button class="calc-button operator">+</button>
-        <button class="calc-button operator">-</button>
-        <button class="calc-button operator">*</button>
-        <button class="calc-button operator">/</button>
-        <button class="calc-button ">=</button>
-        <!-- additional -->
-        <button class="calc-button">clear</button>
+        <div class="calculator-buttons">
+          <div class="calculator-numbers">
+            <button class="calc-button number">1</button>
+            <button class="calc-button number">2</button>
+            <button class="calc-button number">3</button>
+            <button class="calc-button number">4</button>
+            <button class="calc-button number">5</button>
+            <button class="calc-button number">6</button>
+            <button class="calc-button number">7</button>
+            <button class="calc-button number">8</button>
+            <button class="calc-button number">9</button>
+            <button class="calc-button number">0</button>
+          </div>
+          <div class="calculator-operators">
+            <!-- additional -->
+            <button class="calc-button">C</button>
+            <!-- operators -->
+            <button class="calc-button operator">+</button>
+            <button class="calc-button operator">-</button>
+            <button class="calc-button operator">*</button>
+            <button class="calc-button operator">/</button>
+            <button class="calc-button ">=</button>
+          </div>
+        </div>
 
         <!-- JS -->
         <script src="js/script.js"></script>
