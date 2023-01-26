@@ -2,6 +2,9 @@
 const result = document.querySelector('#result');
 const lastOperation = document.querySelector('#last-operation');
 
+// vars for operations
+let firstValue, secondValue, operator;
+
 // ----- using Object to store operators ----
 const add = (a, b) => a + b;
 const substract = (a, b) => a - b;
