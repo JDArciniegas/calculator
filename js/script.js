@@ -16,20 +16,22 @@ const divide = (a, b) => a / b;
 // create function operate - takes 3 par - 2 numbers & operator
 
 function executeOperation(value1, value2, operator) {
+  let solution;
   switch (operator) {
     case '+':
-      return add(value1, value2);
+      solution = add(value1, value2);
       break;
     case '-':
-      return substract(value1, value2);
+      solution = substract(value1, value2);
       break;
     case '*':
-      return multiply(value1, value2);
+      solution = multiply(value1, value2);
       break;
     case '/':
-      return divide(value1, value2);
+      solution = divide(value1, value2);
       break;
   }
+  result.append(solution)
 }
 
 function updateResultDisplay(result, display){
