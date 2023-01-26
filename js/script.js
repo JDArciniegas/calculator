@@ -31,12 +31,19 @@ function executeOperation(value1, value2, operator) {
       solution = divide(value1, value2);
       break;
   }
-  result.append(solution)
+  updateLastOperation(value1, value2, operator)
+  updateResultDisplay(solution)
 }
 
-function updateResultDisplay(result, display){
-  display.append(result);
+function updateLastOperation(val1, val2, operator){
+  lastOperation.append(`${val1} ${operator} ${val2}`)
 }
+
+function updateResultDisplay(sol){
+  result.textContent = ''
+  result.append(sol);
+}
+
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
   updateResultDisplay(e.key, result)
