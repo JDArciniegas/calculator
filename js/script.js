@@ -31,9 +31,13 @@ function executeOperation(value1, value2, operator) {
       solution = divide(value1, value2);
       break;
   }
+
+  roundedSol = (Math.round(solution * 100) / 100).toFixed(2);
   updateLastOperation(value1, value2, operator)
-  updateResultDisplay(solution)
+  updateResultDisplay(roundedSol)
 }
+
+executeOperation(5, 6, '+')
 
 function updateLastOperation(val1, val2, operator){
   lastOperation.append(`${val1} ${operator} ${val2}`)
@@ -46,7 +50,6 @@ function updateResultDisplay(sol){
 
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
-  updateResultDisplay(e.key, result)
   console.log(e.key);
 })
 
