@@ -4,7 +4,7 @@ const lastOperation = document.querySelector('#last-operation');
 
 // vars for operations
 let firstValue, secondValue, operator;
-const operands = ['+','-','*','/'];
+const operands = ['+', '-', '*', '/'];
 
 // ----- using Object to store operators ----
 const add = (a, b) => a + b;
@@ -17,6 +17,8 @@ const divide = (a, b) => a / b;
 // create function operate - takes 3 par - 2 numbers & operator
 
 function executeOperation(value1, value2, operator) {
+  value1 = Number(value1)
+  value2 = Number(value2)
   let solution;
   switch (operator) {
     case '+':
@@ -32,8 +34,9 @@ function executeOperation(value1, value2, operator) {
       solution = divide(value1, value2);
       break;
   }
+  resultScreen.textContent = solution;
 }
-function resetNumber(){
+function resetNumber() {
   if (resultScreen.textContent === "0") resultScreen.textContent = '';
 }
 
@@ -42,15 +45,23 @@ function appendValue(number) {
   resultScreen.textContent += number
 }
 
-function appendOperator(operand){
+function appendOperator(operand) {
+  operator = operand;
   firstValue = resultScreen.textContent;
   lastOperation.textContent = `${firstValue} ${operand}`
   resultScreen.textContent = ''
 }
 
+function operate(){
+  secondValue = resultScreen.textContent;
+  executeOperation(firstValue, secondValue, operator);
+  lastOperation.textContent = `${firstValue} ${operator} ${secondValue}`
+}
+
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
   if (e.key >= 0 && e.key <= 9) appendValue(e.key);
+  if (e.key === '=' || e.key === "Enter") operate();
   if (operands.includes(e.key)) appendOperator(e.key);
 });
 
