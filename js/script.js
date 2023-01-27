@@ -1,9 +1,10 @@
 // --------------------variables--------------------
-const result = document.querySelector('#result');
+const resultScreen = document.querySelector('#result');
 const lastOperation = document.querySelector('#last-operation');
 
 // vars for operations
 let firstValue, secondValue, operator;
+const operands = ['+', '-', '*', '/'];
 
 // ----- using Object to store operators ----
 const add = (a, b) => a + b;
@@ -16,6 +17,8 @@ const divide = (a, b) => a / b;
 // create function operate - takes 3 par - 2 numbers & operator
 
 function executeOperation(value1, value2, operator) {
+  value1 = Number(value1)
+  value2 = Number(value2)
   let solution;
   switch (operator) {
     case '+':
@@ -31,22 +34,40 @@ function executeOperation(value1, value2, operator) {
       solution = divide(value1, value2);
       break;
   }
-  updateLastOperation(value1, value2, operator)
-  updateResultDisplay(solution)
+  resultScreen.textContent = solution;
+}
+function resetNumber() {
+  if (resultScreen.textContent === "0") resultScreen.textContent = '';
 }
 
-function updateLastOperation(val1, val2, operator){
-  lastOperation.append(`${val1} ${operator} ${val2}`)
+function appendValue(number) {
+  resetNumber()
+  resultScreen.textContent += number
 }
 
-function updateResultDisplay(sol){
-  result.textContent = ''
-  result.append(sol);
+function appendOperator(operand) {
+  operator = operand;
+  firstValue = resultScreen.textContent;
+  lastOperation.textContent = `${firstValue} ${operand}`
+  resultScreen.textContent = ''
+}
+
+function operate(){
+  secondValue = resultScreen.textContent;
+  executeOperation(firstValue, secondValue, operator);
+  lastOperation.textContent = `${firstValue} ${operator} ${secondValue}`
 }
 
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
-  updateResultDisplay(e.key, result)
-  console.log(e.key);
-})
+  if (e.key >= 0 && e.key <= 9) appendValue(e.key);
+  if (e.key === '=' || e.key === "Enter") operate();
+  if (operands.includes(e.key)) appendOperator(e.key);
+});
+
+
+
+
+
+
 
