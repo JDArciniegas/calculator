@@ -1,9 +1,10 @@
 // --------------------variables--------------------
-const result = document.querySelector('#result');
+const resultScreen = document.querySelector('#result');
 const lastOperation = document.querySelector('#last-operation');
 
 // vars for operations
 let firstValue, secondValue, operator;
+const operands = ['+','-','*','/'];
 
 // ----- using Object to store operators ----
 const add = (a, b) => a + b;
@@ -31,32 +32,31 @@ function executeOperation(value1, value2, operator) {
       solution = divide(value1, value2);
       break;
   }
-
-  roundedSol = (Math.round(solution * 100) / 100).toFixed(2);
-  updateLastOperation(value1, value2, operator)
-  updateResultDisplay(roundedSol)
+}
+function resetNumber(){
+  if (resultScreen.textContent === "0") resultScreen.textContent = '';
 }
 
-// test
-
-function updateLastOperation(val1, val2, operator){
-  lastOperation.append(`${val1} ${operator} ${val2}`)
+function appendValue(number) {
+  resetNumber()
+  resultScreen.textContent += number
 }
 
-function updateResultDisplay(sol){
-  result.textContent = ''
-  result.append(sol);
+function appendOperator(operand){
+  firstValue = resultScreen.textContent;
+  lastOperation.textContent = `${firstValue} ${operand}`
+  resultScreen.textContent = ''
 }
-
 
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
-  if(e.key >= 0 && e.key <= 9){
-    result.append(e.key);
-    firstValue = result.textContent;
-    console.log(firstValue);
-  }
-})
+  if (e.key >= 0 && e.key <= 9) appendValue(e.key);
+  if (operands.includes(e.key)) appendOperator(e.key);
+});
+
+
+
+
 
 
 
