@@ -37,7 +37,7 @@ function executeOperation(value1, value2, operator) {
   updateResultDisplay(roundedSol)
 }
 
-executeOperation(5, 6, '+')
+// test
 
 function updateLastOperation(val1, val2, operator){
   lastOperation.append(`${val1} ${operator} ${val2}`)
@@ -48,8 +48,15 @@ function updateResultDisplay(sol){
   result.append(sol);
 }
 
+
 // --------------------events--------------------
 window.addEventListener('keydown', (e) => {
-  console.log(e.key);
+  if(e.key >= 0 && e.key <= 9){
+    result.append(e.key);
+    firstValue = result.textContent;
+    console.log(firstValue);
+  }
 })
+
+
 
