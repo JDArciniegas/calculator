@@ -1,4 +1,4 @@
-:root{
+ :root{
   /* colors */
   --grey: #D1DEDE;
   --blue: #4D7C8A;
@@ -9,10 +9,6 @@
   background-color: var(--grey);
 }
 
-h1{
-  text-align: center;
-}
-
 .container{
   margin: 100px auto;
   display: flex;
@@ -21,56 +17,69 @@ h1{
 
 #calculator{
   border: 2px black solid;
-  position: relative;
-  width: 40%;
+  width: 400px;
+  border-radius: 15px;
 }
 
-.calculator-buttons{
-  display: flex;
-  justify-content: space-evenly;
-  padding: 200px 25px 25px 15px;
-}
-
-.calculator-numbers {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  margin-right: 25px;
-}
-
-.calculator-operators {
-  display: grid;
-  grid-template-columns: auto auto;
-  align-content: flex-start;
-}
 
 #display{
   color: var(--grey);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-/* customize buttons */
-.calc-button{
-  font-size: 36px;
-  padding: 15px;
-  margin:10px;
-  height: 100px;
-}
-
-#display{
   height: 150px;
   width: 100%;
-  border: 3px solid black;
-  position: absolute;
 }
 
 .calc-display{
-  height: 100px;
   color: black;
   font-size: 36px;
   border: 0px;
   padding: 12px
 }
 
+.calc-button{
+  font-size: 36px;
+  margin:10px;
+  height: 75px;
+  width: 75px;
+  border-radius: 15px;
+  border: 2px groove Var(--blue);
 
+}
+.features{
+  display: flex;
+  background-color: green;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.features > .calc-button {
+  width: 50%;
+}
+
+.section-2{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.number-buttons{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: orange;
+  justify-content: space-evenly;
+  flex-grow: 1;
+
+}
+
+.operator-buttons{
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+}
+
+
+.button-images{
+  width: 50px;
+  object-fit: contain;
+}
